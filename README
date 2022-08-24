@@ -1,0 +1,10 @@
+Candy Store application.
+
+Identify your top customers and their favourite snacks!
+
+Run application:
+
+cd CandyStore
+go run main/main.go
+
+Results will show in the terminal!
