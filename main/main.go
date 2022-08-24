@@ -18,9 +18,9 @@ type Customer struct {
 }
 
 func main() {
-	webPage := "https://candystore.zimpler.net/#candystore-customers"
+	url := "https://candystore.zimpler.net/#candystore-customers"
 
-	res, networkErr := http.Get(webPage)
+	res, networkErr := http.Get(url)
 	if networkErr != nil {
 		log.Panic("Failed to connect to server")
 	}
