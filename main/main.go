@@ -20,8 +20,15 @@ type Customer struct {
 func main() {
 	webPage := "https://candystore.zimpler.net/#candystore-customers"
 
-	res, _ := http.Get(webPage)
-	doc, _ := goquery.NewDocumentFromReader(res.Body)
+	res, networkErr := http.Get(webPage)
+	if networkErr != nil {
+		log.Panic("Failed to connect to server")
+	}
+
+	doc, parseErr := goquery.NewDocumentFromReader(res.Body)
+	if parseErr != nil {
+		log.Panic("Failed to parse data as html")
+	}
 
 	var topCustomers []Customer
 
